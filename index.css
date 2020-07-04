@@ -1,0 +1,23 @@
+body {
+  font-family: "Muli", sans-serif;
+  color: darkcyan;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  background-color: darkcyan;
+  width: 40rem;
+  height: 40rem;
+  border-radius: 50%;
+  color: white;
+}
+
