@@ -16,10 +16,11 @@
       <h2>Log</h2>
       <div id="log-files">
       </div>
+      <p>> <input id="logInput" type="text" value="" placeholder="-h for all commands"></p>
     </div>
 
     <div id="main">
-      <button id="open-console" class="open-console" onclick="openNav()">
+      <button id="open-console" class="open-console" onclick="openLog()">
         > Open Console
       </button>
     </div>
@@ -28,10 +29,21 @@
 
     <div class="intro">
       <h1>Hi! My name is Sebastiaan</h1>
-      <h2>
+      <p>
         <span onmouseover="showLog(5)">I am </span>
-        <span class="age">27</span> years <span onmouseover="showLog(6)">old</span>
-      </h2>
+        <span> 27 years <span onmouseover="showLog(6)">old</span>
+      </p>
+      <div class="flip-box">
+        <div class="flip-box-inner">
+          <div class="flip-box-front">
+            <img onmouseover="showLog(7)" width="150" src="profilePicture.png" />
+          </div>
+          <div class="flip-box-back">
+            <p>It's me!</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </body>
   <script src="index.js"></script>
