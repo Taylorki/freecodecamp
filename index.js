@@ -1,24 +1,41 @@
-function showIam() {
-  document.getElementById("iam").style.visibility = "visible";
+const logs = {
+  1: "> Initiating...",
+  2: "> Gathering data from subject with id #SEBA-25-6-6-93...",
+  3: "> Checking subject's Facebook activity log...",
+  4: "> Done",
+  5: '> subjectAlive ? "I am" : "I was"',
+  6: '> subjectHappy ? "young" : "old"',
+};
+
+const logIdsInUse = [];
+
+function showLog(id) {
+  if (!logIdsInUse.includes(id)) {
+    let node = document.createElement("P");
+    let textNode = document.createTextNode(logs[id]);
+    node.appendChild(textNode);
+    document.getElementById("log-files").appendChild(node);
+    logIdsInUse.push(id);
+  }
 }
 
 function showOld() {
-    document.getElementById("old").style.visibility = "visible";
-  }
+  document.getElementById("old").style.visibility = "visible";
+}
 
 function openNav() {
   document.getElementById("mySidebar").style.width = "25vw";
   document.getElementById("main").style.marginLeft = "25vw";
   document.getElementById("open-console").style.visibility = "hidden";
-  document.getElementById("log-1").style.visibility = "visible";
+  showLog(1);
   setTimeout(function () {
-    document.getElementById("log-2").style.visibility = "visible";
+    showLog(2);
   }, 2000);
   setTimeout(function () {
-    document.getElementById("log-3").style.visibility = "visible";
+    showLog(3);
   }, 4000);
   setTimeout(function () {
-    document.getElementById("log-4").style.visibility = "visible";
+    showLog(4);
   }, 6000);
 }
 

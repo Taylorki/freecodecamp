@@ -62,7 +62,3 @@ body {
   transition: margin-left .5s;
   padding: 16px;
 }
-
-.log-files {
-  visibility: hidden;
-}
