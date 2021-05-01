@@ -1,6 +1,5 @@
 <html>
   <head>
-    <script src="index.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Muli:wght@300"
@@ -11,24 +10,37 @@
     <!-- sidebar console -->
 
     <div id="mySidebar" class="sidebar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="javascript:void(0)" class="close-console" onclick="closeNav()"
+        >×</a
+      >
+      <h2>Log</h2>
+      <div class="log-files">
+        <p class="typewriter" id="log-1">> Initiating...</p>
+        <p id="log-2">
+          > Gathering data from subject with id #SEBA-25-6-6-93...
+        </p>
+        <p id="log-3">> Checking subject's Facebook activity log...</p>
+        <p id="log-4">> Done</p>
+        <p id="iam">> subjectAlive ? "I am" : "I was"</p>
+        <p id="old">> subjectHappy ? "young" : "old"</p>
+      </div>
     </div>
 
     <div id="main">
-      <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
+      <button id="open-console" class="open-console" onclick="openNav()">
+        > Open Console
+      </button>
     </div>
 
     <!-- end sidebar console -->
 
     <div class="intro">
-
-    <h1>Hi! My name is Sebastiaan</h1>
-    <h2>
-      <span onmouseover="showIam()" onmouseout="hideIam()">I am </span>
-      <span class="age">27</span> years old
-    </h2>
-    <h2>Console</h2>
-    <span id="iam">alive ? "I am" : "I was"</span>
-  </div>
+      <h1>Hi! My name is Sebastiaan</h1>
+      <h2>
+        <span onmouseover="showIam()">I am </span>
+        <span class="age">27</span> years <span onmouseover="showOld()">old</span>
+      </h2>
+    </div>
   </body>
+  <script src="index.js"></script>
 </html>

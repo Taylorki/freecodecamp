@@ -18,14 +18,13 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #212024;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
+  padding: 40px 8px 8px 32px;
 }
 
 .sidebar a {
-  padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
@@ -37,7 +36,7 @@ body {
   color: #f1f1f1;
 }
 
-.sidebar .closebtn {
+.sidebar .close-console {
   position: absolute;
   top: 0;
   right: 25px;
@@ -45,16 +44,17 @@ body {
   margin-left: 50px;
 }
 
-.openbtn {
+.open-console {
   font-size: 20px;
   cursor: pointer;
-  background-color: #111;
+  background-color: #212024;
   color: white;
   padding: 10px 15px;
   border: none;
 }
 
-.openbtn:hover {
+
+.open-console:hover {
   background-color: #444;
 }
 
@@ -63,3 +63,6 @@ body {
   padding: 16px;
 }
 
+.log-files {
+  visibility: hidden;
+}
