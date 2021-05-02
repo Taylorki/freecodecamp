@@ -51,8 +51,8 @@ function clearLog() {
 }
 
 function openLog() {
-  document.getElementById("mySidebar").style.width = "25vw";
-  document.getElementById("mySidebar").style.visibility = "visible";
+  document.getElementById("console").style.width = "25vw";
+  document.getElementById("console").style.visibility = "visible";
   showLog(1);
   setTimeout(function () {
     showLog(2);
@@ -223,3 +223,9 @@ function htmlToElement(html) {
 
 openLog();
 document.getElementById("logInput").focus();
+
+function changeSidebar() {
+
+  document.getElementById('console').remove(); 
+
+}

@@ -177,3 +177,22 @@ input:focus {
     border-color: transparent
   }
 }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 1vw;
+}
+
+.changeSidebar {
+  padding: 10px;
+}
+
+.changeSidebar:hover {
+  cursor: pointer;
+}
+
+.changeLayout {
+  width: 2vw;
+}
