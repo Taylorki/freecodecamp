@@ -11,9 +11,7 @@ const logs = {
   9: "> Checking grades in university database...",
   10: "> Good decisions come from experience, and experience comes from bad decisions",
   11: "> Eat, sleep, eat, repeat",
-  12: "> También un poco de español",
-  13: "> Checking grades in university database...",
-  14: "> Checking grades in university database...",
+  12: "> También un poco de español"
 };
 
 let logIdsInUse = [];
@@ -166,12 +164,10 @@ let fifthAnswer = `
 
 let sixthAnswer = `
  <div class='currentAnswer'>
-
  <p> Back in 2018, I went to Vietnam for 3 months to aid university students with their English study <br/>
  through a series of discussion classes. It was a wonderful experience, enabling me to empower others and <br/> 
  at the same time, have a deeper self-understanding.
  </p>
-
  </div>
  `;
 
@@ -187,7 +183,6 @@ let seventhAnswer = `
       <div class="flip-box-back">
         <p>It's me!</p>
       </div>
-
     </div>
   </div>
  </div>
