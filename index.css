@@ -8,7 +8,8 @@ body {
 }
 
 .intro {
-  margin-left: 45vw;
+  margin-left: 25vw;
+  text-align: center;
 }
 
 .sidebar {
@@ -117,4 +118,27 @@ input{
 
 input:focus { 
   outline: none;
+}
+
+.line {
+  width: 20%;
+  border: 1px solid lightgrey;
+  background-color: lightgrey;
+}
+
+.faq-title {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.faq-title:hover {
+  cursor: pointer;
+}
+
+.answer {
+  visibility: hidden;
+}
+
+.down-arrow {
+  visibility: hidden;
 }
