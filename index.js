@@ -12,7 +12,7 @@ const logs = {
   10: "> Good decisions come from experience, and experience comes from bad decisions",
   11: "> Eat, sleep, eat, repeat",
   12: "> También un poco de español",
-  13: "> Image flipped again!"
+  13: "> Image flipped again!",
 };
 
 let logIdsInUse = [];
@@ -64,16 +64,89 @@ function openLog() {
   }, 6500);
 }
 
+let commands = `
+<p> --- <br/>
+ clear(): clears the console <br/>
+ play(): play a game <br/>
+ --- </p>
+`;
+
+let choices = ["ROCK", "PAPER", "SCISSORS"];
+
+function getRandomArbitrary(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+let currentChoice;
+let result; 
+
+function getRockPaperScissors(randomNumber) {
+  let choice = choices[randomNumber];
+  currentChoice = choice;
+
+  return `
+<p> --- <br/>
+ ${choice} <br/>
+ --- </p>
+`;
+}
+
+function paragraphTemplate(txt) {
+  return `
+<p> --- <br/>
+ ${txt} <br/>
+ --- </p>
+`;
+}
+
+let winningSchedule = {
+  paper : 'ROCK', 
+  rock : 'SCISSORS', 
+  scissors : 'PAPER'
+}
+
 let logInput = document.getElementById("logInput");
 logInput.addEventListener("keyup", function (event) {
+  let currentValue = document.getElementById("logInput").value; 
+  currentValue.toLowerCase(); 
   if (event.keyCode === 13) {
     event.preventDefault();
-    if (document.getElementById("logInput").value === "clear()") {
+    if (currentValue === "clear()") {
       clearLog();
       clearLogInput();
+    } else if (currentValue === "-h") {
+      let html = htmlToElement(commands);
+      document.getElementById("log-files").appendChild(html);
+    } else if (currentValue === "play()") {
+      let choice = getRandomArbitrary(0, 3);
+      let html = htmlToElement(getRockPaperScissors(choice));
+      document.getElementById("log-files").appendChild(html);
+      document.getElementById("logInput").value = "";
+      document.getElementById("logInput").placeholder = "Make your move";
+    } else if (currentValue == "paper") {
+      result = winningSchedule.paper === currentChoice ? 'You won!' : 'You lose!'; 
+      let html = htmlToElement(paragraphTemplate(result));
+      document.getElementById("log-files").appendChild(html);
+      finishGame(); 
+    } else if (currentValue == "rock") {
+      result = winningSchedule.rock === currentChoice ? 'You won!' : 'You lose!'; 
+      let html = htmlToElement(paragraphTemplate(result));
+      document.getElementById("log-files").appendChild(html);
+      finishGame(); 
+    } else if (currentValue == "scissors") {
+      result = winningSchedule.scissors === currentChoice ? 'You won!' : 'You lose!'; 
+      let html = htmlToElement(paragraphTemplate(result));
+      document.getElementById("log-files").appendChild(html);
+      finishGame(); 
     }
   }
 });
+
+function finishGame() {
+  document.getElementById("logInput").value = "";
+  document.getElementById("logInput").placeholder = result === 'You won!' ? 'Well done' : 'Try again'; 
+  currentChoice = ''; 
+}
 
 function clearLogInput() {
   document.getElementById("logInput").value = "";
