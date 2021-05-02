@@ -94,10 +94,29 @@ function clearLogInput() {
 openLog();
 document.getElementById("logInput").focus(); 
 
+let firstAnswer = `<div class='currentAnswer'>
+<p>My name is Sebastiaan (Seb), I'm 27 years old and I'm originally from Antwerp, Belgium.<br/>
+I'm a software developer at heart and I have a wide range of skills and 
+expertise within this field. <br> 
+Apart from programming, I love traveling, writing fiction and playing the piano. 
+</p>
+</div>`; 
 
-const answers = {
-  0: "My name is Sebastiaan (Seb), I'm 27 years old and I'm originally from Antwerp, Belgium.",
-  1: "> Initiating...",
+ let secondAnswer = `
+ <div class='currentAnswer'>
+ <p>Yes, I did.<br> During my bachelor's and master's degree, I focused mostly on marketing and finance. <br/>
+ I also improved my skills in a variety of domains: statistics, maths, economics, languages, ... <br/>
+   My
+   master thesis researched the impact of
+   new digital marketing formats on children <br/>
+   and how forewarnings can help them in
+   their defense against advertisements.  </p>
+</div>
+ `; 
+
+ const answers = {
+  0: firstAnswer,
+  1: secondAnswer,
   2: "> Gathering data from subject with id #SEBA-25-6-6-93...",
   3: "> Checking subject's Facebook activity log...",
   4: "> Done",
@@ -109,25 +128,31 @@ const answers = {
 let currentlyOpen = []; 
 
 function showAnswer(currentElement, id) {
-  if (currentlyOpen.length === 0) {
+  if (!currentlyOpen.includes(id)) {
     currentElement.getElementsByClassName('left-arrow')[0].style.display = 'none'; 
     currentElement.getElementsByClassName('down-arrow')[0].style.visibility = 'visible'; 
-    let node = document.createElement("P");
-    node.id = 'currentAnswer'; 
-    let textNode = document.createTextNode(answers[id]);
-    node.appendChild(textNode);
-    currentElement.appendChild(node);
+    let html = htmlToElement(answers[id]); 
+    currentElement.appendChild(html);
     currentlyOpen.push(id); 
   } else if(currentlyOpen.includes(id)) {
-    document.getElementById('currentAnswer').remove(); 
-    currentlyOpen = []; 
+    currentElement.getElementsByClassName('currentAnswer')[0].remove(); 
+    const index = currentlyOpen.indexOf(id);
+    currentlyOpen.splice(index, 1);  
     currentElement.getElementsByClassName('left-arrow')[0].style.display = 'inline'; 
     currentElement.getElementsByClassName('down-arrow')[0].style.visibility = 'hidden'; 
   } else {
-    let node = document.createElement("P");
-    let textNode = document.createTextNode(answers[id]);
-    node.appendChild(textNode);
-    currentElement.appendChild(node);
+    currentElement.getElementsByClassName('left-arrow')[0].style.display = 'none'; 
+    currentElement.getElementsByClassName('down-arrow')[0].style.visibility = 'visible'; 
+    let html = htmlToElement(answers[id]); 
+    currentElement.appendChild(html);
     currentlyOpen.push(id); 
   }
 }
+
+function htmlToElement(html) {
+  var template = document.createElement('template');
+  html = html.trim();
+  template.innerHTML = html;
+  return template.content.firstChild;
+}
+
