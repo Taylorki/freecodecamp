@@ -4,21 +4,23 @@ const logs = {
   2: "> Gathering data from subject with id #SEBA-25-6-6-93...",
   3: "> Checking subject's Facebook activity log...",
   4: "> Done",
-  5: '> subjectAlive ? "I am" : "I was"',
-  6: '> subjectHappy ? "young" : "old"',
+  5: '> subjectAlive ? "I am 27 years old" : "I was 27 years old"',
+  6: '> subjectHappy ? "I am 27 years young" : "I am 27 years old"',
   7: "> Image flipped!",
   8: "> Fetching personal data from Cambridge Analytica servers...", 
   9: "> Checking grades in university database..."
 };
 
 let logIdsInUse = [];
+function createLogTemplate(id) {
+  let innerText = logs[id]; 
+  return logTemplate = `<p class="typing"> ${innerText}</p>`
+}
 
 function showLog(id) {
   if (!logIdsInUse.includes(id)) {
-    let node = document.createElement("P");
-    let textNode = document.createTextNode(logs[id]);
-    node.appendChild(textNode);
-    document.getElementById("log-files").appendChild(node);
+    let html = htmlToElement(createLogTemplate(id)); 
+    document.getElementById("log-files").appendChild(html);
     logIdsInUse.push(id);
     logClearing(logIdsInUse.length);
   } else if (id === 7) {
@@ -60,10 +62,10 @@ function openLog() {
   }, 2000);
   setTimeout(function () {
     showLog(3);
-  }, 4000);
+  }, 4500);
   setTimeout(function () {
     showLog(4);
-  }, 6000);
+  }, 6500);
 }
 
 function closeNav() {
@@ -92,9 +94,6 @@ logInput.addEventListener("keyup", function(event) {
 function clearLogInput() {
   document.getElementById('logInput').value = ''; 
 }
-
-openLog();
-document.getElementById("logInput").focus(); 
 
 let firstAnswer = `<div class='currentAnswer'>
 <p>My name is Sebastiaan (Seb), <span onmouseover="showLog(5)">I am </span> 27 years <span onmouseover="showLog(6)">old</span> and I'm originally from Antwerp, Belgium.<br/>
@@ -181,7 +180,7 @@ Apart from programming, I love traveling, writing fiction and playing the piano.
     <div class="flip-box-inner">
       
       <div class="flip-box-front">
-        <img onmouseover="showLog(7)" width="150" src="profilePicture.png" />
+        <img class="profilePicture" onmouseover="showLog(7)" width="150" src="profilePicture.png" />
       </div>
       
       <div class="flip-box-back">
@@ -235,3 +234,5 @@ function htmlToElement(html) {
   return template.content.firstChild;
 }
 
+openLog();
+document.getElementById("logInput").focus(); 
