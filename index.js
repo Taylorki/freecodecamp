@@ -51,7 +51,7 @@ function clearLog() {
 }
 
 function openLog() {
-  document.getElementById("mySidebar").style.width = "20vw";
+  document.getElementById("mySidebar").style.width = "25vw";
   document.getElementById("mySidebar").style.visibility = "visible";
   showLog(1);
   setTimeout(function () {
@@ -223,35 +223,3 @@ function htmlToElement(html) {
 
 openLog();
 document.getElementById("logInput").focus();
-
-
-let handler = document.querySelector('.handler');
-let wrapper = handler.closest('.container');
-let boxA = wrapper.querySelector('.box');
-let isHandlerDragging = false;
-
-document.addEventListener('mousedown', function(e) {
-  if (e.target === handler) {
-    isHandlerDragging = true;
-  }
-});
-
-document.addEventListener('mousemove', function(e) {
-  if (!isHandlerDragging) {
-    return false;
-  }
-
-  var containerOffsetLeft = wrapper.offsetLeft;
-
-  var pointerRelativeXpos = e.clientX - containerOffsetLeft;
-  
-  var boxAminWidth = 60;
-
-  boxA.style.width = (Math.max(boxAminWidth, pointerRelativeXpos - 8)) + 'px';
-  boxA.style.flexGrow = 0;
-});
-
-document.addEventListener('mouseup', function(e) {
-  // Turn off dragging flag when user mouse is up
-  isHandlerDragging = false;
-});
