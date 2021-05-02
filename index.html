@@ -1,25 +1,20 @@
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="index.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Muli:wght@300"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
 
+<head>
+  <link rel="stylesheet" type="text/css" href="index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="container">
     <div id="mySidebar" class="sidebar">
-      
+
       <h2>Console</h2>
       <div id="log-files"></div>
       <p>
         >
-        <input
-          id="logInput"
-          type="text"
-          value=""
-          placeholder="-h for all commands"
-        />
+        <input id="logInput" type="text" value="" placeholder="-h for all commands" />
       </p>
     </div>
 
@@ -29,7 +24,7 @@
 
       <div onclick="showAnswer(this,0)">
         <span class="faq-title" onclick="showLog(8)">
-          Who are you anyways? 
+          Who are you anyways?
           <span class="left-arrow">&#9654;</span>
           <span class="down-arrow">&#9660;</span>
         </span>
@@ -68,8 +63,8 @@
       </div>
       <hr class="line" />
       <div onclick="showAnswer(this,5)">
-        <span class="faq-title" >
-          Do you have any volunteering experience? 
+        <span class="faq-title">
+          Do you have any volunteering experience?
           <span class="left-arrow">&#9654;</span>
           <span class="down-arrow">&#9660;</span>
         </span>
@@ -77,13 +72,15 @@
       <hr class="line" />
       <div onclick="showAnswer(this,6)">
         <span class="faq-title">
-          What do you even look like, dude? 
+          What do you even look like, dude?
           <span class="left-arrow">&#9654;</span>
           <span class="down-arrow">&#9660;</span>
         </span>
       </div>
       <hr class="line" />
-  </body>
-  <script src="index.js"></script>
-  
+    </div>
+  </div>
+</body>
+<script src="index.js"></script>
+
 </html>
