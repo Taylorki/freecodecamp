@@ -64,9 +64,12 @@ body {
   padding: 16px;
 }
 
-
-
 /* image flip */ 
+
+.flip-image {
+  display: flex;
+  justify-content: center;
+}
 
 .flip-box {
   background-color: transparent;
