@@ -11,7 +11,7 @@ const logs = {
   9: "> Checking grades in university database...",
   10: "> Good decisions come from experience, and experience comes from bad decisions",
   11: "> Eat, sleep, eat, repeat",
-  12: "> También un poco de español"
+  12: "> También un poco de español",
 };
 
 let logIdsInUse = [];
@@ -225,7 +225,77 @@ openLog();
 document.getElementById("logInput").focus();
 
 function changeSidebar() {
+  document.getElementById("console").remove();
+}
 
-  document.getElementById('console').remove(); 
+var faq1Container = document.getElementById("faq-1-container");
+faq1Container.onclick = faqOnclickHandler;
+var faq2Container = document.getElementById("faq-2-container");
+faq2Container.onclick = faqOnclickHandler;
+var faq3Container = document.getElementById("faq-3-container");
+faq3Container.onclick = faqOnclickHandler;
+var faq4Container = document.getElementById("faq-4-container");
+faq4Container.onclick = faqOnclickHandler;
+var faq5Container = document.getElementById("faq-5-container");
+faq5Container.onclick = faqOnclickHandler;
+var faq6Container = document.getElementById("faq-6-container");
+faq6Container.onclick = faqOnclickHandler;
+var faq7Container = document.getElementById("faq-7-container");
+faq7Container.onclick = faqOnclickHandler;
 
+function faqOnclickHandler() {
+  switch (this.id) {
+    case "faq-1-container":
+      showAnswer(this, 0);
+      break;
+    case "faq-2-container":
+      showAnswer(this, 1);
+      break;
+    case "faq-3-container":
+      showAnswer(this, 2);
+      break;
+    case "faq-4-container":
+      showAnswer(this, 3);
+      break;
+    case "faq-5-container":
+      showAnswer(this, 4);
+      break;
+    case "faq-6-container":
+      showAnswer(this, 5);
+      break;
+    case "faq-7-container":
+      showAnswer(this, 6);
+      break;
+  }
+}
+
+var faq1 = document.getElementById("faq-1");
+faq1.onclick = faqLogHandler;
+var faq2 = document.getElementById("faq-2");
+faq2.onclick = faqLogHandler;
+var faq3 = document.getElementById("faq-3");
+faq3.onclick = faqLogHandler;
+var faq4 = document.getElementById("faq-4");
+faq4.onclick = faqLogHandler;
+var faq5 = document.getElementById("faq-5");
+faq5.onclick = faqLogHandler;
+
+function faqLogHandler() {
+  switch (this.id) {
+    case "faq-1":
+      showLog(8);
+      break;
+    case "faq-2":
+      showLog(9);
+      break;
+    case "faq-3":
+      showLog(10);
+      break;
+    case "faq-4":
+      showLog(11);
+      break;
+    case "faq-5":
+      showLog(12);
+      break;
+  }
 }
