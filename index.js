@@ -52,9 +52,7 @@ function clearLog() {
 
 function openLog() {
   document.getElementById("mySidebar").style.width = "25vw";
-  document.getElementById("main").style.marginLeft = "25vw";
   document.getElementById("mySidebar").style.visibility = "visible";
-  document.getElementById("open-console").style.visibility = "hidden";
   showLog(1);
   setTimeout(function () {
     showLog(2);
@@ -65,18 +63,6 @@ function openLog() {
   setTimeout(function () {
     showLog(4);
   }, 6500);
-}
-
-function closeNav() {
-  document.getElementById("mySidebar").style.visibility = "hidden";
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-
-  setTimeout(showOpenButton(), 2000);
-}
-
-function showOpenButton() {
-  document.getElementById("open-console").style.visibility = "visible";
 }
 
 let logInput = document.getElementById("logInput");
