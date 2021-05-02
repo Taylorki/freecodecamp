@@ -10,12 +10,32 @@ body {
   justify-content: center;
 }
 
+.box {
+  box-sizing: border-box;
+  flex: 1 1 auto;
+}
+
+.handler {
+  width: 20px;
+  padding: 0;
+  cursor: ew-resize;
+  flex: 0 0 auto;
+}
+
+.handler::before {
+  content: '';
+  display: block;
+  width: 1px;
+  min-height: 100%;
+  margin: 0 auto;
+}
+
 #iam {
   visibility: hidden;
 }
 
 .intro {
-  width: 75vw;
+  min-width: 70vw;
   text-align: center;
 }
 
@@ -24,12 +44,12 @@ ul li {
 
 .sidebar {
   min-height: 100%;
-  width: 0;
+  min-width: 15vw;
+  width: 20vw;
   top: 0;
   left: 0;
   background-color: #212024;
   overflow-x: hidden;
-  transition: 0.5s;
   padding: 0px 8px 8px 32px;
 }
 
