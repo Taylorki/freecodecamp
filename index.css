@@ -1,7 +1,12 @@
 body {
   font-family: "Muli", sans-serif;
-  color: darkcyan;
+  color: #008B8B;
   margin: 0; 
+}
+
+a {
+  text-decoration: none !important;
+  color: #008B8B; 
 }
 
 .container { 
@@ -17,6 +22,9 @@ body {
 .intro {
   width: 75vw;
   text-align: center;
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 ul li {
@@ -115,12 +123,12 @@ ul li {
 /* Style the back side */
 .flip-box-back {
   background-color: #212024;
-  color: darkcyan;
+  color: #008B8B;
   transform: rotateY(180deg);
 }
 
 input{
-  color: darkcyan;
+  color: #008B8B;
   font-family: monospace;
   font-size: 12px;
   background-color: #212024;

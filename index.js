@@ -1,17 +1,18 @@
 const logs = {
   0: "> Console cleared!",
   1: "> Initiating...",
-  2: "> Gathering data from subject with id #SEBA-25-6-6-93...",
+  2: "> Gathering data from subject with id #SEBA-25693...",
   3: "> Checking subject's Facebook activity log...",
   4: "> Done",
   5: '> subjectAlive ? "I am 27 years old" : "I was 27 years old"',
   6: '> subjectHappy ? "I am 27 years young" : "I am 27 years old"',
   7: "> Image flipped!",
-  8: "> Fetching personal data from Cambridge Analytica servers...",
+  8: "> Fetching personal data from Cambridge Analytica...",
   9: "> Checking grades in university database...",
   10: "> Good decisions come from experience, and experience comes from bad decisions",
   11: "> Eat, sleep, eat, repeat",
   12: "> También un poco de español",
+  13: "> Image flipped again!"
 };
 
 let logIdsInUse = [];
@@ -27,10 +28,8 @@ function showLog(id) {
     logIdsInUse.push(id);
     logClearing(logIdsInUse.length);
   } else if (id === 7) {
-    let node = document.createElement("P");
-    let textNode = document.createTextNode("> Image flipped again!");
-    node.appendChild(textNode);
-    document.getElementById("log-files").appendChild(node);
+    let html = htmlToElement(createLogTemplate(13));
+    document.getElementById("log-files").appendChild(html);
     logIdsInUse.push(id);
     logClearing(logIdsInUse.length);
   }
