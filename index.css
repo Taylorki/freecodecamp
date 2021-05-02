@@ -93,6 +93,7 @@ ul li {
   width: 150px;
   height: 200px;
   perspective: 1000px; 
+  margin-top:10px;
 }
 
 .flip-box-inner {
@@ -123,6 +124,7 @@ ul li {
 
 /* Style the back side */
 .flip-box-back {
+  line-height: 150px;
   background-color: #212024;
   color: #008B8B;
   transform: rotateY(180deg);

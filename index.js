@@ -162,7 +162,7 @@ Apart from programming, I love traveling, writing fiction and playing the piano.
 
 let secondAnswer = `
  <div class='currentAnswer'>
- <p>Yes, I did.<br> During my bachelor's and master's degree, I focused mostly on marketing and finance. <br/>
+ <p> During my bachelor's and master's degree, I focused mostly on marketing and finance. <br/>
  I also improved my skills in a variety of domains: statistics, maths, economics, languages, ... <br/>
    My
    master thesis researched the impact of
