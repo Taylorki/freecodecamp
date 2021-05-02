@@ -7,19 +7,24 @@ const logs = {
   5: '> subjectAlive ? "I am 27 years old" : "I was 27 years old"',
   6: '> subjectHappy ? "I am 27 years young" : "I am 27 years old"',
   7: "> Image flipped!",
-  8: "> Fetching personal data from Cambridge Analytica servers...", 
-  9: "> Checking grades in university database..."
+  8: "> Fetching personal data from Cambridge Analytica servers...",
+  9: "> Checking grades in university database...",
+  10: "> Good decisions come from experience, and experience comes from bad decisions",
+  11: "> Eat, sleep, eat, repeat",
+  12: "> También un poco de español",
+  13: "> Checking grades in university database...",
+  14: "> Checking grades in university database...",
 };
 
 let logIdsInUse = [];
 function createLogTemplate(id) {
-  let innerText = logs[id]; 
-  return logTemplate = `<p class="typing"> ${innerText}</p>`
+  let innerText = logs[id];
+  return `<p class="typing"> ${innerText}</p>`;
 }
 
 function showLog(id) {
   if (!logIdsInUse.includes(id)) {
-    let html = htmlToElement(createLogTemplate(id)); 
+    let html = htmlToElement(createLogTemplate(id));
     document.getElementById("log-files").appendChild(html);
     logIdsInUse.push(id);
     logClearing(logIdsInUse.length);
@@ -47,10 +52,6 @@ function clearLog() {
   showLog(0);
 }
 
-function showOld() {
-  document.getElementById("old").style.visibility = "visible";
-}
-
 function openLog() {
   document.getElementById("mySidebar").style.width = "25vw";
   document.getElementById("main").style.marginLeft = "25vw";
@@ -73,7 +74,7 @@ function closeNav() {
   document.getElementById("mySidebar").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
 
-  setTimeout(showOpenButton(), 2000); 
+  setTimeout(showOpenButton(), 2000);
 }
 
 function showOpenButton() {
@@ -81,18 +82,18 @@ function showOpenButton() {
 }
 
 let logInput = document.getElementById("logInput");
-logInput.addEventListener("keyup", function(event) {
+logInput.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
-   event.preventDefault();
-   if(document.getElementById("logInput").value === 'clear()') {
-       clearLog(); 
-       clearLogInput(); 
-   }
+    event.preventDefault();
+    if (document.getElementById("logInput").value === "clear()") {
+      clearLog();
+      clearLogInput();
+    }
   }
 });
 
 function clearLogInput() {
-  document.getElementById('logInput').value = ''; 
+  document.getElementById("logInput").value = "";
 }
 
 let firstAnswer = `<div class='currentAnswer'>
@@ -101,9 +102,9 @@ I'm a software developer at heart and I have a wide range of skills and
 expertise within this field. <br> 
 Apart from programming, I love traveling, writing fiction and playing the piano. 
 </p>
-</div>`; 
+</div>`;
 
- let secondAnswer = `
+let secondAnswer = `
  <div class='currentAnswer'>
  <p>Yes, I did.<br> During my bachelor's and master's degree, I focused mostly on marketing and finance. <br/>
  I also improved my skills in a variety of domains: statistics, maths, economics, languages, ... <br/>
@@ -113,22 +114,22 @@ Apart from programming, I love traveling, writing fiction and playing the piano.
    and how forewarnings can help them in
    their defense against advertisements.  </p>
 </div>
- `; 
+ `;
 
- let thirdAnswer = `
+let thirdAnswer = `
  <div class='currentAnswer'>
  
  <p> I started as a marketing specialist for a medium-sized catering company. I was part of the rebranding process, <br/>
  creating a newer and more recognizable brand, which simultaneously stood for the values the company wanted to represent. </p>
  <p> After that, I started working for a Salesforce implementation partner, first as a consultant, and then as a developer. <br/>
  And I have been doing exactly that for the past 3-ish years, building a vast array of experience in Salesforce along the way. <br/>
- I have touched nearly all aspects of Salesforce development on the core platform (Apex, Visualforce, LWC, SOQL), as well as <br/>
- on its Marketing Cloud, which includes languages such as html/css, handlebars, AMPscript and SQL. 
+ I have touched nearly all aspects of Salesforce development on the core platform (Apex, Visualforce, LWC, SOQL, declarative tools),<br/>
+  as well as on its Marketing Cloud, which includes languages such as html/css, handlebars, AMPscript and SQL. 
  </p>
  </div>
- `; 
+ `;
 
- let fourthAnswer = `
+let fourthAnswer = `
  <div class='currentAnswer'>
  <p> I am responsible for multiple clients mostly situated in the cultural sector. These clients usually have similar requirements <br/>
  for their Salesforce org:
@@ -150,9 +151,9 @@ Apart from programming, I love traveling, writing fiction and playing the piano.
  On a day-to-day basis, I am either building or maintaining these requirements.
  </p>
  </div>
- `; 
+ `;
 
- let fifthAnswer = `
+let fifthAnswer = `
  <div class='currentAnswer'>
  <ul>
  <li> Dutch: native </li>
@@ -161,9 +162,9 @@ Apart from programming, I love traveling, writing fiction and playing the piano.
  <li> German: beginner </li>
  </ul>
  </div>
- `; 
+ `;
 
- let sixthAnswer = `
+let sixthAnswer = `
  <div class='currentAnswer'>
 
  <p> Back in 2018, I went to Vietnam for 3 months to aid university students with their English study <br/>
@@ -172,9 +173,9 @@ Apart from programming, I love traveling, writing fiction and playing the piano.
  </p>
 
  </div>
- `; 
+ `;
 
- let seventhAnswer = `
+let seventhAnswer = `
  <div class='currentAnswer flip-image'>
   <div class="flip-box">
     <div class="flip-box-inner">
@@ -190,10 +191,9 @@ Apart from programming, I love traveling, writing fiction and playing the piano.
     </div>
   </div>
  </div>
- `; 
+ `;
 
-
- const answers = {
+const answers = {
   0: firstAnswer,
   1: secondAnswer,
   2: thirdAnswer,
@@ -203,36 +203,42 @@ Apart from programming, I love traveling, writing fiction and playing the piano.
   6: seventhAnswer,
 };
 
-let currentlyOpen = []; 
+let currentlyOpen = [];
 
 function showAnswer(currentElement, id) {
   if (!currentlyOpen.includes(id)) {
-    currentElement.getElementsByClassName('left-arrow')[0].style.display = 'none'; 
-    currentElement.getElementsByClassName('down-arrow')[0].style.visibility = 'visible'; 
-    let html = htmlToElement(answers[id]); 
+    currentElement.getElementsByClassName("left-arrow")[0].style.display =
+      "none";
+    currentElement.getElementsByClassName("down-arrow")[0].style.visibility =
+      "visible";
+    let html = htmlToElement(answers[id]);
     currentElement.appendChild(html);
-    currentlyOpen.push(id); 
-  } else if(currentlyOpen.includes(id)) {
-    currentElement.getElementsByClassName('currentAnswer')[0].remove(); 
+    currentlyOpen.push(id);
+  } else if (currentlyOpen.includes(id)) {
+    currentElement.getElementsByClassName("currentAnswer")[0].remove();
     const index = currentlyOpen.indexOf(id);
-    currentlyOpen.splice(index, 1);  
-    currentElement.getElementsByClassName('left-arrow')[0].style.display = 'inline'; 
-    currentElement.getElementsByClassName('down-arrow')[0].style.visibility = 'hidden'; 
+    currentlyOpen.splice(index, 1);
+    currentElement.getElementsByClassName("left-arrow")[0].style.display =
+      "inline";
+    currentElement.getElementsByClassName("down-arrow")[0].style.visibility =
+      "hidden";
   } else {
-    currentElement.getElementsByClassName('left-arrow')[0].style.display = 'none'; 
-    currentElement.getElementsByClassName('down-arrow')[0].style.visibility = 'visible'; 
-    let html = htmlToElement(answers[id]); 
+    currentElement.getElementsByClassName("left-arrow")[0].style.display =
+      "none";
+    currentElement.getElementsByClassName("down-arrow")[0].style.visibility =
+      "visible";
+    let html = htmlToElement(answers[id]);
     currentElement.appendChild(html);
-    currentlyOpen.push(id); 
+    currentlyOpen.push(id);
   }
 }
 
 function htmlToElement(html) {
-  var template = document.createElement('template');
+  var template = document.createElement("template");
   html = html.trim();
   template.innerHTML = html;
   return template.content.firstChild;
 }
 
 openLog();
-document.getElementById("logInput").focus(); 
+document.getElementById("logInput").focus();

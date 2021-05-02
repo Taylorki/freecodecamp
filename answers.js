@@ -4,7 +4,7 @@ let firstAnswer = "<div>My name is Sebastiaan (Seb)," +
  "</div>"
 
 
-export const answers = {
+ const answers = {
   0: firstAnswer,
   1: "> Initiating...",
   2: "> Gathering data from subject with id #SEBA-25-6-6-93...",
@@ -14,3 +14,10 @@ export const answers = {
   6: '> subjectHappy ? "young" : "old"',
   7: "> Image flipped!",
 };
+
+
+ function hello() {
+  return "Hello";
+}
+
+export { hello};
