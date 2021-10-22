@@ -1,0 +1,26 @@
+//return
+let x = "7";
+let y = 7;
+
+function T(){
+if(x ===y) {
+  return "Equal!";
+} else {
+  return "Not equal!";
+}
+}
+console.log(T());
+
+//result
+
+let x = 7;
+let y = 9;
+if(x === y) {
+result = "Equal!";
+} else {
+result = "Not equal!";
+}
+
+console.log(result);
+
+
