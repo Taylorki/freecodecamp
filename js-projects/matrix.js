@@ -18,7 +18,7 @@ const matrix = [
 // init = initialize
 // i = index
 
-function init_matrix(number_of_rows, number_of_columns) {
+function matrix(number_of_rows, number_of_columns) {
     let matrix = [];
     for (let index = 0; index < number_of_rows; index++) {
         let row = [];
@@ -30,6 +30,5 @@ function init_matrix(number_of_rows, number_of_columns) {
     return matrix;
 }
 
-let matrix = init_matrix(3, 3);
+let matrix = matrix(3, 3);
 console.log(matrix);
-
